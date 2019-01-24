@@ -18,6 +18,7 @@ modules:
     cleanup:
         - "/include"
         - "/share"
+        - "/lib/pkgconfig"
     sources:
         - type: archive
           url: https://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
@@ -29,6 +30,7 @@ modules:
     cleanup:
         - "/include"
         - "/share/man"
+        - "/lib/pkgconfig"
 
     sources:
         - type: archive
