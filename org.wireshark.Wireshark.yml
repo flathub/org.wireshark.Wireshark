@@ -88,8 +88,6 @@ modules:
           sha256: 2f1e82adf0868c9e26a5a7a3115111b6da7e432ddbac268a7ca2fae2a247eef3
 
   - name: l4z
-    # Weirdly enough, when we build this module, flatpak-builder complains about the icon being missing... O_o
-    disabled: true
     no-autogen: true
     make-install-args:
         - DESTDIR=/app
