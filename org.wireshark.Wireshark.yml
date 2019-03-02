@@ -110,8 +110,12 @@ modules:
         - /include
     sources:
         - type: archive
-          url: https://soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz
+          url: https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz
           sha256: cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465
+
+        - type: shell
+          commands:
+            - cp -p /usr/share/automake-*/config.{sub,guess} config
 
   - name: sbc
     cleanup:
@@ -136,6 +140,7 @@ modules:
 
   - name: wireshark
     buildsystem: cmake-ninja
+    
     cleanup:
         - "/include"
         - "/share/man"
@@ -143,5 +148,5 @@ modules:
 
     sources:
         - type: archive
-          url: https://1.eu.dl.wireshark.org/src/wireshark-2.6.6.tar.xz
-          sha256: 487933ea075bdbb25d8df06017d9c4f49fc20eb7f6ec80af086718ed5550e863
+          url: https://1.eu.dl.wireshark.org/src/wireshark-3.0.0.tar.xz
+          sha256: bc4f30f5b2e94f3a696fef9de44673cdf402db90aac5299966da647f708f009e
