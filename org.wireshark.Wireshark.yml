@@ -150,5 +150,5 @@ modules:
 
     sources:
         - type: archive
-          url: https://1.eu.dl.wireshark.org/src/wireshark-3.0.1.tar.xz
-          sha256: 86864c3d0f6c2311992a98d8ea7dfd429097fe62dae2e5516e1a2f6bef2ac08c
+          url: https://1.eu.dl.wireshark.org/src/wireshark-3.0.3.tar.xz
+          sha256: af92729c781d870110885c31ebcbe4c4224ed51bb580d00c896fe9746994211c
