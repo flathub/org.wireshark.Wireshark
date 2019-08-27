@@ -1,0 +1,29 @@
+From bacbcf438d77ca6820bdf8c607d9cbf205218c3b Mon Sep 17 00:00:00 2001
+From: Tobias Mueller <muelli@cryptobitch.de>
+Date: Tue, 27 Aug 2019 17:10:54 +0100
+Subject: [PATCH 2/3] appdata: Added releases to appdata file
+
+This is not as nice as it could be, i.e. the NEWS file could be included
+in the description of the releases.
+---
+ wireshark.appdata.xml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/wireshark.appdata.xml b/wireshark.appdata.xml
+index 9aaedfce87..d888e050a4 100644
+--- a/wireshark.appdata.xml
++++ b/wireshark.appdata.xml
+@@ -47,4 +47,10 @@
+ 	<screenshot>https://www.wireshark.org/~morriss/Screenshot-Wireshark2.0-Stevens-graph.png</screenshot>
+     </screenshots>
+     <updatecontact>wireshark-dev_at_wireshark.org</updatecontact>
++    <releases>
++        <release version="3.0.3" date="2019-07-17"/>
++        <release version="3.0.2" date="2019-05-21"/>
++        <release version="3.0.1" date="2019-04-08"/>
++        <release version="3.0.0" date="2019-02-28"/>
++    </releases>
+ </application>
+-- 
+2.17.1
+

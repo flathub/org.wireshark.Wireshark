@@ -152,7 +152,12 @@ modules:
         - type: archive
           url: https://1.eu.dl.wireshark.org/src/wireshark-3.0.3.tar.xz
           sha256: af92729c781d870110885c31ebcbe4c4224ed51bb580d00c896fe9746994211c
-        - type: shell
-          commands:
-            - sed -i '5i <releases><release version="3.0.3" date="2019-07-17"/></releases><name>Wireshark</name><summary>Network traffic analyzer</summary><content_rating type="oars-1.1"/>'
-              wireshark.appdata.xml
+
+        - type: patch
+          path: 0001-appdata-added-name-and-summary.patch
+
+        - type: patch
+          path: 0002-appdata-Added-releases-to-appdata-file.patch
+
+        - type: patch
+          path: 0003-appdata-rename-updatecontact-to-update_contact-to-be.patch
