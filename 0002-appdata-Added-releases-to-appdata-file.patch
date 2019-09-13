@@ -1,10 +1,12 @@
-From bacbcf438d77ca6820bdf8c607d9cbf205218c3b Mon Sep 17 00:00:00 2001
+From aa7899c1b1bcae628683712c95e908b0f10869d6 Mon Sep 17 00:00:00 2001
 From: Tobias Mueller <muelli@cryptobitch.de>
 Date: Tue, 27 Aug 2019 17:10:54 +0100
-Subject: [PATCH 2/3] appdata: Added releases to appdata file
+Subject: [PATCH 2/4] appdata: Added releases to appdata file
 
 This is not as nice as it could be, i.e. the NEWS file could be included
 in the description of the releases.
+
+Signed-off-by: Tobias Mueller <muelli@cryptobitch.de>
 ---
  wireshark.appdata.xml | 6 ++++++
  1 file changed, 6 insertions(+)

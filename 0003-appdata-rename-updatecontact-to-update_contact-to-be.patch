@@ -1,10 +1,12 @@
-From aef61e571c0a9a8c2df32917fd255a15becec6e5 Mon Sep 17 00:00:00 2001
+From e767a88e8d3316dd8f1a0087ed1a1d783f5c436a Mon Sep 17 00:00:00 2001
 From: Tobias Mueller <muelli@cryptobitch.de>
 Date: Tue, 27 Aug 2019 23:48:59 +0100
-Subject: [PATCH 3/3] appdata: rename updatecontact to update_contact to be
+Subject: [PATCH 3/4] appdata: rename updatecontact to update_contact to be
  more compliant
 
 The validator complained about the tag name and recommended the other.
+
+Signed-off-by: Tobias Mueller <muelli@cryptobitch.de>
 ---
  wireshark.appdata.xml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
