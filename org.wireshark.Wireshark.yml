@@ -150,13 +150,5 @@ modules:
 
     sources:
         - type: archive
-          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.0.5.tar.xz
-          sha256: c551fce475c49cea317ccbf9d22404bc827dde9cee0ccdf6648bfed3ecd9f820
-
-        - type: patch
-          paths:
-            - 0001-appdata-added-name-and-summary.patch
-            - 0002-appdata-Added-releases-to-appdata-file.patch
-            - 0003-appdata-rename-updatecontact-to-update_contact-to-be.patch
-            - 0004-appdata-added-3.0.4-release.patch
-            - 0001-appdata-added-3.0.5-release.patch
+          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.0.tar.xz
+          sha256: 4cfd33a19a454ff4002243e9d04d6afd64280a109a21ae652a192f2be2b1b66c
