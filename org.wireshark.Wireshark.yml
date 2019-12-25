@@ -150,7 +150,7 @@ modules:
 
     sources:
         - type: archive
-          url: https://1.eu.dl.wireshark.org/src/wireshark-3.0.5.tar.xz
+          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.0.5.tar.xz
           sha256: c551fce475c49cea317ccbf9d22404bc827dde9cee0ccdf6648bfed3ecd9f820
 
         - type: patch
