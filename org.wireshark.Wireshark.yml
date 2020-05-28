@@ -113,6 +113,10 @@ modules:
     sources:
         - type: archive
           url: https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz
+          mirror-urls:
+            - https://gstreamer.freedesktop.org/src/mirror/spandsp-0.0.6.tar.gz
+            - https://src.fedoraproject.org/lookaside/pkgs/spandsp/spandsp-0.0.6.tar.gz/897d839516a6d4edb20397d4757a7ca3/spandsp-0.0.6.tar.gz
+            - https://sources.voidlinux.org/spandsp-0.0.6/spandsp-0.0.6.tar.gz
           sha256: cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465
 
         - type: shell
