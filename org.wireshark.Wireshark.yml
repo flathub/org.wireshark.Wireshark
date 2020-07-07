@@ -10,6 +10,7 @@ finish-args:
   - --socket=x11
   - --share=ipc
   - --socket=wayland
+  - --device=dri
   # Because the file chooser somehow doesn't show the files on the host, we export some directory for reading pcap files
   # https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15507
   - --filesystem=xdg-public-share
@@ -154,5 +155,5 @@ modules:
 
     sources:
         - type: archive
-          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.4.tar.xz
-          sha256: d17d461e849e2d0b033431c45f71d8ee8ec3c8faa232a6ad63069a47927db8aa
+          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.5.tar.xz
+          sha256: bd89052a5766cce08b1090df49628567e48cdd24bbaa47667c851bac6aaac940
