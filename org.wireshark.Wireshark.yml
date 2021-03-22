@@ -205,6 +205,20 @@ modules:
       - type: patch
         path: b2c20a3ecf5ed00f63c94077a9762b505935ede9..909a9bdf7ab143e1f0baaf9736baebd3cd79aacf.patch
 
+  - name: krb5
+    subdir: src
+    config-opts:
+      - --disable-static
+      - --disable-rpath
+    sources:
+      - type: archive
+        url: https://kerberos.org/dist/krb5/1.18/krb5-1.18.1.tar.gz
+        sha256: 02a4e700f10936f937cd1a4c303cab8687a11abecc6107bd4b706b9329cd5400    
+        x-checker-data:
+          type: anitya
+          project-id: 13287
+          url-template: https://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-$version.tar.gz
+
   - name: libpcap
     cleanup:
       - /include
