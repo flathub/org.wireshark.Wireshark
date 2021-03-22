@@ -161,3 +161,8 @@ modules:
         - type: archive
           url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz
           sha256: be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da
+          x-data-checker:
+            type: html
+            url: https://www.wireshark.org/download.html
+            version-pattern:  The current stable release of Wireshark is ([\d\.]+). 
+            url-pattern: (https://1.eu.dl.wireshark.org/src/all-versions/wireshark-([\d\.]+).tar.xz)
