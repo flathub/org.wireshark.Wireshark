@@ -144,7 +144,7 @@ modules:
         commit: dc6d23c0019985573e23d52b29371716c05a9481
 
       - type: patch
-        filename: b2c20a3ecf5ed00f63c94077a9762b505935ede9..909a9bdf7ab143e1f0baaf9736baebd3cd79aacf.patch
+        path: b2c20a3ecf5ed00f63c94077a9762b505935ede9..909a9bdf7ab143e1f0baaf9736baebd3cd79aacf.patch
 
   - name: libpcap
     cleanup:
