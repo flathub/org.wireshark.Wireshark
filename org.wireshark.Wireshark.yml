@@ -27,8 +27,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://www.libssh.org/files/0.8/libssh-0.8.6.tar.xz
-        sha256: 1046b95632a07fc00b1ea70ee683072d0c8a23f544f4535440b727812002fd01
+        url: https://www.libssh.org/files/0.8/libssh-0.8.9.tar.xz
+        sha256: 8559e19da0c40b6f93482b6160219ad77a4d9f1dc190bf174757455c6ae26825
 
   - name: c-ares
     cleanup:
