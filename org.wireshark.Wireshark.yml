@@ -140,8 +140,8 @@ modules:
     sources:
       - type: git
         url: https://git.kernel.org/pub/scm/bluetooth/sbc.git
-        tag: '1.4'
-        commit: fa62b2303737ec33ae6406fddb0569241bf0b266
+        tag: '1.5'
+        commit: dc6d23c0019985573e23d52b29371716c05a9481
 
 
   - name: libpcap
