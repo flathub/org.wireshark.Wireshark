@@ -113,9 +113,10 @@ modules:
     cleanup:
       - /include
     sources:
-      - type: archive
-        url: http://download-mirror.savannah.gnu.org/releases/linphone/plugins/sources/bcg729-1.0.2.tar.gz
-        sha256: 77c923edc57a53014da5f31788b63efbabfc7277c06deaeada06574628e4b03f
+      - type: git
+        url: https://github.com/BelledonneCommunications/bcg729.git
+        tag: 1.0.2
+        commit: 23418135d21077bf41e71170179e4e3cb9723f8a
 
   - name: spandsp
     cleanup:
