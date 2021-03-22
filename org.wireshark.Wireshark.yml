@@ -27,8 +27,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://www.libssh.org/files/0.8/libssh-0.8.9.tar.xz
-        sha256: 8559e19da0c40b6f93482b6160219ad77a4d9f1dc190bf174757455c6ae26825
+        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.9.5.tar.gz
+        sha256: df65d6054554e8ff5458628808ce8d68b928175f4fefa1c833582b9568491e64
         x-checker-data:
           type: anitya
           project-id: 1729
@@ -166,11 +166,11 @@ modules:
       - /lib/pkgconfig
 
     sources:
-        - type: archive
-          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz
-          sha256: be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da
-          x-data-checker:
-            type: html
-            url: https://www.wireshark.org/download.html
-            version-pattern:  The current stable release of Wireshark is ([\d\.]+). 
-            url-pattern: (https://1.eu.dl.wireshark.org/src/all-versions/wireshark-([\d\.]+).tar.xz)
+      - type: archive
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz
+        sha256: be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da
+        x-data-checker:
+          type: html
+          url: https://www.wireshark.org/download.html
+          version-pattern: The current stable release of Wireshark is ([\d\.]+).
+          url-pattern: (https://1.eu.dl.wireshark.org/src/all-versions/wireshark-([\d\.]+).tar.xz)
