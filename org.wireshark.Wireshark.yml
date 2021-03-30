@@ -166,7 +166,7 @@ modules:
 
       - type: patch
         path: 2548.patch
-        
+
   - name: bcg729
     buildsystem: cmake-ninja
     config-opts:
@@ -205,7 +205,7 @@ modules:
       - type: git
         url: https://git.kernel.org/pub/scm/bluetooth/sbc.git
         tag: '1.5'
-        commit: dc6d23c0019985573e23d52b29371716c05a9481
+        commit: b2c20a3ecf5ed00f63c94077a9762b505935ede9
         x-checker-data:
           type: git
 
@@ -219,8 +219,8 @@ modules:
       - --disable-rpath
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.18/krb5-1.18.1.tar.gz
-        sha256: 02a4e700f10936f937cd1a4c303cab8687a11abecc6107bd4b706b9329cd5400    
+        url: https://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.19.1.tar.gz
+        sha256: fa16f87eb7e3ec3586143c800d7eaff98b5e0dcdf0772af7d98612e49dbeb20b
         x-checker-data:
           type: anitya
           project-id: 13287
@@ -256,8 +256,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: https://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
-        sha256: 2edb88808e5913fdaa8e9c1fcaf272e19b2485338742b5074b9fe44d68f37019
+        url: http://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
+        sha256: 8d12b42623eeefee872f123bd0dc85d535b00df4d42e865f993c40f7bfc92b1e
         x-checker-data:
           type: anitya
           project-id: 1702
