@@ -127,23 +127,6 @@ modules:
           url-template: https://github.com/google/snappy/archive/refs/tags/$version.tar.gz
 
 
-  - name: zstd
-    buildsystem: meson
-    builddir: true
-    subdir: build/meson
-    config-opts:
-      - -Dbin_programs=false
-      - -Dbin_contrib=false
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: archive
-        url: https://github.com/facebook/zstd/releases/download/v1.4.9/zstd-1.4.9.tar.gz
-        sha256: 29ac74e19ea28659017361976240c4b5c5c24db3b89338731a6feb97c038d293
-        x-checker-data:
-          type: anitya
-          project-id: 12083
-          url-template: https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz
-
   - name: lz4
     no-autogen: true
     make-install-args:
@@ -164,6 +147,26 @@ modules:
           project-id: 1865
           url-template: https://github.com/lz4/lz4/archive/v$version.tar.gz
 
+  - name: zstd
+    buildsystem: meson
+    builddir: true
+    subdir: build/meson
+    config-opts:
+      - -Dbin_programs=false
+      - -Dbin_contrib=false
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: archive
+        url: https://github.com/facebook/zstd/releases/download/v1.4.9/zstd-1.4.9.tar.gz
+        sha256: 29ac74e19ea28659017361976240c4b5c5c24db3b89338731a6feb97c038d293
+        x-checker-data:
+          type: anitya
+          project-id: 12083
+          url-template: https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz
+
+      - type: patch
+        path: 2548.patch
+        
   - name: bcg729
     cleanup:
       - /include
