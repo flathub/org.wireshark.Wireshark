@@ -257,10 +257,10 @@ modules:
       - /lib/pkgconfig
 
     sources:
-        - type: archive
-          url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.7.tar.xz
-          sha256: be832fb86d9c455c5be8b225a755cdc77cb0e92356bdfc1fe4b000d93f7d70da
-          x-checker-data:
-            type: anitya
-            project-id: 5137
-            url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
+      - type: archive
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.4.tar.xz
+        sha256: 729cd11e9715c600e5ad74ca472bacf8af32c20902192d5f2b271268511d4d29
+        x-checker-data:
+          type: anitya
+          project-id: 5137
+          url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
