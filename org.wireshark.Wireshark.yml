@@ -168,13 +168,17 @@ modules:
         path: 2548.patch
         
   - name: bcg729
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DENABLE_STATIC=NO
+      - -DENABLE_TESTS=NO
     cleanup:
       - /include
     sources:
       - type: git
         url: https://github.com/BelledonneCommunications/bcg729.git
-        tag: 1.0.2
-        commit: 23418135d21077bf41e71170179e4e3cb9723f8a
+        tag: 1.1.1
+        commit: faaa895862165acde6df8add722ba4f85a25007d
         x-checker-data:
           type: git
 
