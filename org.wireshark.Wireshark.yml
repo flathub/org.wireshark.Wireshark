@@ -119,8 +119,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
-        sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+        url: https://github.com/google/snappy/archive/refs/tags/1.1.9.tar.gz
+        sha256: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
         x-checker-data:
           type: anitya
           project-id: 4844
