@@ -119,8 +119,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
-        sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+        url: https://github.com/google/snappy/archive/refs/tags/1.1.9.tar.gz
+        sha256: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
         x-checker-data:
           type: anitya
           project-id: 4844
@@ -157,8 +157,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/facebook/zstd/releases/download/v1.4.9/zstd-1.4.9.tar.gz
-        sha256: 29ac74e19ea28659017361976240c4b5c5c24db3b89338731a6feb97c038d293
+        url: https://github.com/facebook/zstd/releases/download/v1.5.0/zstd-1.5.0.tar.gz
+        sha256: 5194fbfa781fcf45b98c5e849651aa7b3b0a008c6b72d4a0db760f3002291e94
         x-checker-data:
           type: anitya
           project-id: 12083
@@ -256,8 +256,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
-        sha256: 8d12b42623eeefee872f123bd0dc85d535b00df4d42e865f993c40f7bfc92b1e
+        url: http://www.tcpdump.org/release/libpcap-1.10.1.tar.gz
+        sha256: ed285f4accaf05344f90975757b3dbfe772ba41d1c401c2648b7fa45b711bdd4
         x-checker-data:
           type: anitya
           project-id: 1702
@@ -274,8 +274,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.5.tar.xz
-        sha256: de1aafd100a1e1207c850d180e97dd91ab8da0f5eb6beec545f725cdb145d333
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.7.tar.xz
+        sha256: 6c4cee51ef997cb9d9aaee84113525a5629157d3c743d7c4e320000de804a09d
         x-checker-data:
           type: anitya
           project-id: 5137
