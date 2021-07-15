@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 672561e..58963d9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -88,7 +88,7 @@ option(BUILD_SHARED_LIBS "Build shared libraries(DLLs)." OFF)
+ 
+ option(SNAPPY_BUILD_TESTS "Build Snappy's own tests." ON)
+ 
+-option(SNAPPY_BUILD_BENCHMARKS "Build Snappy's benchmarks" ON)
++option(SNAPPY_BUILD_BENCHMARKS "Build Snappy's benchmarks" OFF)
+ 
+ option(SNAPPY_FUZZING_BUILD "Build Snappy for fuzzing." OFF)
+ 
