@@ -116,6 +116,7 @@ modules:
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
       - -DSNAPPY_BUILD_TESTS=OFF
+      - -DSNAPPY_BUILD_BENCHMARK=OFF
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
