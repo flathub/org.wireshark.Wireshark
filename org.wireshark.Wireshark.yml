@@ -3,9 +3,6 @@ runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
 command: wireshark
-rename-icon: wireshark
-rename-desktop-file: wireshark.desktop
-rename-appdata-file: wireshark.appdata.xml
 finish-args:
   - --socket=x11
   - --share=ipc
