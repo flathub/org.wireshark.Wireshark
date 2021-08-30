@@ -3,9 +3,6 @@ runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
 command: wireshark
-rename-icon: wireshark
-rename-desktop-file: wireshark.desktop
-rename-appdata-file: wireshark.appdata.xml
 finish-args:
   - --socket=x11
   - --share=ipc
@@ -272,9 +269,13 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.8.tar.xz
-        sha256: 58a7fa8dfe2010a8c8b7dcf66438c653e6493d47eb936ba48ef49d4aa4dbd725
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.5.0.tar.xz
+        sha256: cb96804f6283980ae1218843bcf0d0866d8952ef215b5f85337fce7c5d6221b3
         x-checker-data:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
+
+      # This has been merged upstream: https://gitlab.com/wireshark/wireshark/-/merge_requests/4043
+      - type: patch
+        path: 0001-pcapng-declare-offset-to-be-volatile-to-fix-build-er.patch
