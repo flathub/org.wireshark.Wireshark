@@ -275,7 +275,3 @@ modules:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
-
-      # This has been merged upstream: https://gitlab.com/wireshark/wireshark/-/merge_requests/4043
-      - type: patch
-        path: 0001-pcapng-declare-offset-to-be-volatile-to-fix-build-er.patch
