@@ -269,13 +269,9 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.5.0.tar.xz
-        sha256: cb96804f6283980ae1218843bcf0d0866d8952ef215b5f85337fce7c5d6221b3
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.0rc1.tar.xz
+        sha256: e35f8597a4a8f0e4b787af3a0c13f9d0933b84da4dde27684b617922e27d57e5
         x-checker-data:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
-
-      # This has been merged upstream: https://gitlab.com/wireshark/wireshark/-/merge_requests/4043
-      - type: patch
-        path: 0001-pcapng-declare-offset-to-be-volatile-to-fix-build-er.patch
