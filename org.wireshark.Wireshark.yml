@@ -54,8 +54,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.18.0.tar.gz
-        sha256: 71c19708ed52a60ec6f14a4a48527187619d136e6199683e77832c394b0b0af8
+        url: https://c-ares.haxx.se/download/c-ares-1.18.1.tar.gz
+        sha256: 1a7d52a8a84a9fbffb1be9133c0f6e17217d91ea5a6fa61f6b4729cda78ebbcf
         x-checker-data:
           type: anitya
           project-id: 5840
@@ -269,8 +269,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.0rc1.tar.xz
-        sha256: e35f8597a4a8f0e4b787af3a0c13f9d0933b84da4dde27684b617922e27d57e5
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.0rc2.tar.xz
+        sha256: aa42b951bfeb3ddcfca9caf9ef67fdff75a39e0e19b2fb2b88a516f8f40df1b9
         x-checker-data:
           type: anitya
           project-id: 5137
