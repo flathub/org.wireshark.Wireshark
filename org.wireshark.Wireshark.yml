@@ -269,8 +269,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.0rc3.tar.xz
-        sha256: 1ef5ccec05675402d8eff977396316aa5525b995619115c67eed58e9d3c2bca2
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.0.tar.xz
+        sha256: 9cc8f7fc5bb1d66fbdfdf95cde6e1c98633c303f9af9b33ae9f1fcf022fedf06
         x-checker-data:
           type: anitya
           project-id: 5137
