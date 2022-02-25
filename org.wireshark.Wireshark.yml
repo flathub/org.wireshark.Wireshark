@@ -28,7 +28,8 @@ modules:
           url-template: https://zlib.net/zlib-$version.tar.gz
 
       - type: script
-        dest-filename: contrib/minizip/autogen.sh
+        dest: contrib/minizip/
+        dest-filename: autogen.sh
         commands:
           - autoreconf -ifv
 
