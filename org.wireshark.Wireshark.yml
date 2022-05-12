@@ -92,7 +92,9 @@ modules:
       - type: archive
         url: https://www.lua.org/ftp/lua-5.2.4.tar.gz
         sha256: b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
+
         # Wireshark doesn't seems to support Lua version higher than 5.2
+
         # x-checker-data:
         #   type: anitya
         #   project-id: 1847
@@ -108,17 +110,18 @@ modules:
         url: https://github.com/maxmind/libmaxminddb/releases/download/1.3.2/libmaxminddb-1.3.2.tar.gz
         sha256: e6f881aa6bd8cfa154a44d965450620df1f714c6dc9dd9971ad98f6e04f6c0f0
 
-        # Taken from https://github.com/flathub/net.openra.OpenRA/blob/master/net.openra.OpenRA.yaml
-        # I don't know whether we need this and if so, where to put those files
-        #- type: file
-        #  url: https://nuget.org/api/v2/package/MaxMind.Db/2.0.0
-        #  dest-filename: thirdparty/download/MaxMind.Db.zip
-        #  sha256: 98595abd21c735fe8bb84911a7b254f5d37c910818411f8edded7378e3e7c181
+      # Taken from https://github.com/flathub/net.openra.OpenRA/blob/master/net.openra.OpenRA.yaml
+      # I don't know whether we need this and if so, where to put those files
 
-        #- type: file
-        #  url: https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country_20181211.tar.gz
-        #  dest: thirdparty/download/
-        #  sha256: 9e71cdb9cd870e1209001cbcfb0cb4dd3a58ff2d8ab85320682680aab0c250fc
+      # - type: file
+      #   url: https://nuget.org/api/v2/package/MaxMind.Db/2.0.0
+      #   dest-filename: thirdparty/download/MaxMind.Db.zip
+      #   sha256: 98595abd21c735fe8bb84911a7b254f5d37c910818411f8edded7378e3e7c181
+
+      # - type: file
+      #   url: https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country_20181211.tar.gz
+      #   dest: thirdparty/download/
+      #   sha256: 9e71cdb9cd870e1209001cbcfb0cb4dd3a58ff2d8ab85320682680aab0c250fc
 
   - name: snappy
     cleanup:
@@ -133,11 +136,13 @@ modules:
       - type: archive
         url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
         sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+
         # Disabled, because 1.1.8 has build failures and getting update proposals by the bot let's the advantages vanish
-        xx-checker-data:
-          type: anitya
-          project-id: 4844
-          url-template: https://github.com/google/snappy/archive/refs/tags/$version.tar.gz
+
+        # x-checker-data:
+        #   type: anitya
+        #   project-id: 4844
+        #   url-template: https://github.com/google/snappy/archive/refs/tags/$version.tar.gz
 
 
   - name: lz4
