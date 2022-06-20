@@ -214,8 +214,8 @@ modules:
     sources:
       - type: git
         url: https://git.kernel.org/pub/scm/bluetooth/sbc.git
-        tag: '1.5'
-        commit: b2c20a3ecf5ed00f63c94077a9762b505935ede9
+        tag: '2.0'
+        commit: 8dc5d5ba381512ad5b1afa45c63ec6b0a3833244
         x-checker-data:
           type: git
 
