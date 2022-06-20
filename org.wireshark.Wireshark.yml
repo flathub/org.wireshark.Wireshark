@@ -219,9 +219,6 @@ modules:
         x-checker-data:
           type: git
 
-      - type: patch
-        path: b2c20a3ecf5ed00f63c94077a9762b505935ede9..909a9bdf7ab143e1f0baaf9736baebd3cd79aacf.patch
-
   - name: krb5
     subdir: src
     config-opts:
