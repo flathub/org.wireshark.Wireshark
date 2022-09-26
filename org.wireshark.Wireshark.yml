@@ -231,7 +231,8 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 13287
-          url-template: https://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-$version.tar.gz
+          stable-only: true
+          url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
 
   - name: libsmi
     sources:
