@@ -167,7 +167,7 @@ modules:
     config-opts:
       - -Dbin_programs=false
       - -Dbin_contrib=false
-      - -DCMAKE_BUILD_TYPE=Release
+      - --buildtype=debugoptimized
     sources:
       - type: archive
         url: https://github.com/facebook/zstd/releases/download/v1.5.2/zstd-1.5.2.tar.gz
