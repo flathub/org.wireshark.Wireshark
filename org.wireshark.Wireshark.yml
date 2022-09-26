@@ -281,9 +281,12 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.7.1.tar.xz
-        sha256: cccd3da69b97f0e8ab4c609746359fd74d8e5e18ca326b1dbc28b4e2a80d05cd
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.7.2.tar.xz
+        sha256: be455226fb30aca64edf513312b87b58e11e14730c725611f0e1562658bc7890
         x-checker-data:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
+
+      - type: patch
+        path: fa3735378fce0c287e149bbb770a814c92e02420.patch

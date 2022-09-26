@@ -1,0 +1,26 @@
+From fa3735378fce0c287e149bbb770a814c92e02420 Mon Sep 17 00:00:00 2001
+From: Moshe Kaplan <mosheekaplan@gmail.com>
+Date: Thu, 28 Jul 2022 21:02:54 +0000
+Subject: [PATCH] make-version.py: Add missing parentheses on function call
+
+`match.groups()` is a function, not an attribute. Add () as needed to access match group items.
+---
+ tools/make-version.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/make-version.py b/tools/make-version.py
+index 5a69e3377c..1b5ff1a5a8 100755
+--- a/tools/make-version.py
++++ b/tools/make-version.py
+@@ -270,7 +270,7 @@ def read_git_archive(tagged_version_extra, untagged_version_extra):
+         match = re.match(r'^tag: (v[1-9].+)', git_ref)
+         if match:
+             is_tagged = True
+-            vcs_tag = match.groups[0]
++            vcs_tag = match.groups()[0]
+ 
+     if is_tagged:
+         print(f"We are on tag {vcs_tag}.")
+-- 
+GitLab
+
