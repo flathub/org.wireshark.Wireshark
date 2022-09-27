@@ -128,7 +128,7 @@ modules:
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
       - -DSNAPPY_BUILD_TESTS=OFF
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
         url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
@@ -167,7 +167,7 @@ modules:
     config-opts:
       - -Dbin_programs=false
       - -Dbin_contrib=false
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
         url: https://github.com/facebook/zstd/releases/download/v1.5.2/zstd-1.5.2.tar.gz
@@ -287,7 +287,7 @@ modules:
     buildsystem: cmake-ninja
 
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
 
     cleanup:
       - /include
