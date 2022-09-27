@@ -234,6 +234,11 @@ modules:
           stable-only: true
           url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
 
+      - type: shell
+        dest: src
+        commands:
+          - autoreconf -si
+
   - name: libsmi
     sources:
       - type: archive
