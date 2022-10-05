@@ -302,6 +302,3 @@ modules:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
-
-      - type: patch
-        path: fa3735378fce0c287e149bbb770a814c92e02420.patch
