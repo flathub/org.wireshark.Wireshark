@@ -302,3 +302,5 @@ modules:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
+      - type: patch
+        path: 0001-Mention-that-data-capture-isn-t-possible.patch
