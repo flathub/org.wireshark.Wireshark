@@ -275,8 +275,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.2.tar.gz
-        sha256: db6d79d4ad03b8b15fb16c42447d093ad3520c0ec0ae3d331104dcfb1ce77560
+        url: http://www.tcpdump.org/release/libpcap-1.10.3.tar.gz
+        sha256: 2a8885c403516cf7b0933ed4b14d6caa30e02052489ebd414dc75ac52e7559e6
         x-checker-data:
           type: anitya
           project-id: 1702
@@ -296,8 +296,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.2.tar.xz
-        sha256: f35915699f2f9b28ddb211202d40ec8984e5834d3c911483144a4984ba44411d
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.3.tar.xz
+        sha256: 6c51e15bcc0afb93734e686dbff354ffd159f570bd2904bcbbad6f3feb7e9511
         x-checker-data:
           type: anitya
           project-id: 5137
