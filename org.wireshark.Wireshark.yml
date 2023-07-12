@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.54.0/nghttp2-1.54.0.tar.gz
-        sha256: 890cb0761d2fac570f0aa7bce085cd7d3c77bcfd56510456b6ea0278cde812f0
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.55.0/nghttp2-1.55.0.tar.gz
+        sha256: 1e2d802c19041bc16c1bcc48d13858beb39f4ea64c0dfe3f04bfac6de970329d
         x-checker-data:
           type: anitya
           project-id: 8651
@@ -226,8 +226,8 @@ modules:
       - --disable-rpath
     sources:
       - type: archive
-        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21-final.tar.gz
-        sha256: f0fe1d7c94a1437c921f599797bce103981301428b2abfa1a9494c5e984843a6
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.1-final.tar.gz
+        sha256: 72425658b8ede9948e3b5517269a9220f70ffad25e6fc73e352ca11360233d3b
         x-checker-data:
           type: anitya
           project-id: 13287
@@ -296,8 +296,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.6.tar.xz
-        sha256: 0079097a1b17ebc7250a73563f984c13327dac5016b7d53165810fbcca4bd884
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.7.tar.xz
+        sha256: a79f7b04cbff823e30452abf4bcb86773d8583eb62d5f71f16c09f019f8a8777
         x-checker-data:
           type: anitya
           project-id: 5137
