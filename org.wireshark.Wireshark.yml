@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.55.0/nghttp2-1.55.0.tar.gz
-        sha256: 1e2d802c19041bc16c1bcc48d13858beb39f4ea64c0dfe3f04bfac6de970329d
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.55.1/nghttp2-1.55.1.tar.gz
+        sha256: e12fddb65ae3218b4edc083501519379928eba153e71a1673b185570f08beb96
         x-checker-data:
           type: anitya
           project-id: 8651
@@ -296,8 +296,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.6.tar.xz
-        sha256: 0079097a1b17ebc7250a73563f984c13327dac5016b7d53165810fbcca4bd884
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.7.tar.xz
+        sha256: a79f7b04cbff823e30452abf4bcb86773d8583eb62d5f71f16c09f019f8a8777
         x-checker-data:
           type: anitya
           project-id: 5137
