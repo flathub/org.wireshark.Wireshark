@@ -41,8 +41,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.10.5.tar.gz
-        sha256: 2ae3a73b146440b22c5251077859f21a9efbcdd7269fc9c7a98271355e729a07
+        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.10.6.tar.gz
+        sha256: 5789613288c3dea7348f51f7de68cd7f54316b063906561f92b44dafb01ae387
         x-checker-data:
           type: anitya
           project-id: 1729
@@ -55,8 +55,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.22.1.tar.gz
-        sha256: f67c180deb799c670d9dda995a18ce06f6c7320b6c6363ff8fa85b77d0da9db8
+        url: https://c-ares.haxx.se/download/c-ares-1.25.0.tar.gz
+        sha256: 71832b93a48f5ff579c505f4869120c14e57b783275367207f1a98314aa724e5
         x-checker-data:
           type: anitya
           project-id: 5840
@@ -296,8 +296,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.0.tar.xz
-        sha256: 0e428492f4c3625d61a7ccff008dc0e429d16ab8caccad4403157ea92b48a75b
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.2.tar.xz
+        sha256: 9e3672be8c6caf9279a5a13582d6711ab699ae2a79323e92a99409c1ead98521
         x-checker-data:
           type: anitya
           project-id: 5137
