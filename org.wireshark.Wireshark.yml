@@ -53,6 +53,8 @@ modules:
     cleanup:
       - /include
       - /share
+    config-opts:
+      - --disable-tests
     sources:
       - type: archive
         url: https://c-ares.haxx.se/download/c-ares-1.22.1.tar.gz
