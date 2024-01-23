@@ -20,8 +20,8 @@ modules:
     subdir: contrib/minizip
     sources:
       - type: archive
-        url: https://zlib.net/zlib-1.3.tar.gz
-        sha256: ff0ba4c292013dbc27530b3a81e1f9a813cd39de01ca5e0f8bf355702efa593e
+        url: https://zlib.net/zlib-1.3.1.tar.gz
+        sha256: 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23
         x-checker-data:
           type: anitya
           project-id: 5303
@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.58.0/nghttp2-1.58.0.tar.gz
-        sha256: 9ebdfbfbca164ef72bdf5fd2a94a4e6dfb54ec39d2ef249aeb750a91ae361dfb
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.59.0/nghttp2-1.59.0.tar.gz
+        sha256: 90fd27685120404544e96a60ed40398a3457102840c38e7215dc6dec8684470f
         x-checker-data:
           type: anitya
           project-id: 8651
