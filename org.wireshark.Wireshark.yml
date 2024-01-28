@@ -55,8 +55,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.25.0.tar.gz
-        sha256: 71832b93a48f5ff579c505f4869120c14e57b783275367207f1a98314aa724e5
+        url: https://c-ares.haxx.se/download/c-ares-1.26.0.tar.gz
+        sha256: bed58c4f02b009080ebda6c2467ba469722ac6aebbf4497dc44a83d8c6194e50
         x-checker-data:
           type: anitya
           project-id: 5840
