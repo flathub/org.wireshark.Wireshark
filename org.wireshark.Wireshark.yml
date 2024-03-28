@@ -55,8 +55,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.26.0.tar.gz
-        sha256: bed58c4f02b009080ebda6c2467ba469722ac6aebbf4497dc44a83d8c6194e50
+        url: https://c-ares.haxx.se/download/c-ares-1.27.0.tar.gz
+        sha256: 0a72be66959955c43e2af2fbd03418e82a2bd5464604ec9a62147e37aceb420b
         x-checker-data:
           type: anitya
           project-id: 5840
@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.59.0/nghttp2-1.59.0.tar.gz
-        sha256: 90fd27685120404544e96a60ed40398a3457102840c38e7215dc6dec8684470f
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.60.0/nghttp2-1.60.0.tar.gz
+        sha256: ca2333c13d1af451af68de3bd13462de7e9a0868f0273dea3da5bc53ad70b379
         x-checker-data:
           type: anitya
           project-id: 8651
@@ -296,8 +296,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.2.tar.xz
-        sha256: 9e3672be8c6caf9279a5a13582d6711ab699ae2a79323e92a99409c1ead98521
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.4.tar.xz
+        sha256: 46bd0f4474337144b30816fb2d8f14e72a26d0391f24fe0b7b619acdcdad8c0c
         x-checker-data:
           type: anitya
           project-id: 5137
