@@ -16,7 +16,7 @@ diff --git a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml b/resour
 index 38832d8..783ae81 100644
 --- a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
 +++ b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
-@@ -15,10 +15,9 @@
+@@ -16,10 +16,9 @@
      <!-- NOTE: the below description was copied from packaging/rpm/SPECS/wireshark.spec.in -->
      <description>
      <p>
@@ -30,7 +30,7 @@ index 38832d8..783ae81 100644
      </p>
      <p>
  	It has many powerful features including a rich display filter language
-@@ -27,13 +26,15 @@
+@@ -28,13 +27,15 @@
  	which was transferred over HTTP or CIFS, or play back an RTP audio
  	stream.
      </p>
@@ -48,7 +48,7 @@ index 38832d8..783ae81 100644
  	Il supporte des dizaines de formats de fichiers de capture de
  	protocoles et comprend plus d’un millier de protocoles.
      </p>
-@@ -44,6 +45,9 @@
+@@ -45,6 +46,9 @@
  	un flux TCP, de sauvegarder le contenu d’un fichier transféré par
  	HTTP ou CIFS, ou de re-jouer un flux audio RTP.
      </p>
