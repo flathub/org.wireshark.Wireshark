@@ -1,0 +1,52 @@
+From d7c7731b80b45e9f9bb045e7c5b196f56a01339f Mon Sep 17 00:00:00 2001
+From: Tobias Mueller <gitlab@muelli.cryptobitch.de>
+Date: Wed, 14 Feb 2024 21:20:51 +0000
+Subject: [PATCH 1/2] wireshark metainfo: Add a developer name tag
+
+Mainly to satisfy Flathub's linter, but it generally increases the quality of the metadata to have a name.
+---
+ resources/freedesktop/org.wireshark.Wireshark.metainfo.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
+index 6526beb4731..6cb3c4aa94b 100644
+--- a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
++++ b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
+@@ -9,6 +9,7 @@
+     <id>org.wireshark.Wireshark</id>
+     <name>Wireshark</name>
+     <summary>Wireshark is the world's foremost protocol analyzer</summary>
++    <developer_name>Wireshark developers</developer_name>
+     <content_rating type="oars-1.1"/>
+     <metadata_license>CC0-1.0</metadata_license>
+     <project_license>GPL-2.0</project_license>
+-- 
+GitLab
+
+
+From b25a12a307346ee5c32ed74199e823f2a60b1533 Mon Sep 17 00:00:00 2001
+From: Tobias Mueller <gitlab@muelli.cryptobitch.de>
+Date: Fri, 16 Feb 2024 19:05:09 +0000
+Subject: [PATCH 2/2] wireshare metainfo: update name to The Wireshark
+ developer community
+
+---
+ resources/freedesktop/org.wireshark.Wireshark.metainfo.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
+index 6cb3c4aa94b..9827d0751e8 100644
+--- a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
++++ b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
+@@ -9,7 +9,7 @@
+     <id>org.wireshark.Wireshark</id>
+     <name>Wireshark</name>
+     <summary>Wireshark is the world's foremost protocol analyzer</summary>
+-    <developer_name>Wireshark developers</developer_name>
++    <developer_name>The Wireshark developer community</developer_name>
+     <content_rating type="oars-1.1"/>
+     <metadata_license>CC0-1.0</metadata_license>
+     <project_license>GPL-2.0</project_license>
+-- 
+GitLab
+
