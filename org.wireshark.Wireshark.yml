@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz
-        sha256: aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.62.0/nghttp2-1.62.0.tar.gz
+        sha256: 482e41a46381d10adbdfdd44c1942ed5fd1a419e0ab6f4a5ff5b61468fe6f00d
         x-checker-data:
           type: anitya
           project-id: 8651
