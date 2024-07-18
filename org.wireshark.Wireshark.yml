@@ -303,8 +303,4 @@ modules:
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
       - type: patch
-        path: 0001-Add-a-developer-name-tag.patch
-      - type: patch
-        path: 0002-Fix-appstream-errors-for-Flatpak.patch
-      - type: patch
         path: 0003-Mention-that-data-capture-isn-t-possible.patch
