@@ -41,8 +41,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.10.6.tar.gz
-        sha256: 5789613288c3dea7348f51f7de68cd7f54316b063906561f92b44dafb01ae387
+        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.11.1.tar.gz
+        sha256: d639d8c18a6b439e6f2047b3ea2a32b4113016f239b86c1ba8e082b02a1aeb1c
         x-checker-data:
           type: anitya
           project-id: 1729
@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.62.1/nghttp2-1.62.1.tar.gz
-        sha256: d0b0b9d00500ee4aa3bfcac00145d3b1ef372fd301c35bff96cf019c739db1b4
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.63.0/nghttp2-1.63.0.tar.gz
+        sha256: 9318a2cc00238f5dd6546212109fb833f977661321a2087f03034e25444d3dbb
         x-checker-data:
           type: anitya
           project-id: 8651
@@ -153,8 +153,8 @@ modules:
       - '*.so'
     sources:
       - type: archive
-        url: https://github.com/lz4/lz4/archive/v1.9.4.tar.gz
-        sha256: 0b0e3aa07c8c063ddf40b082bdf7e37a1562bda40a0ff5272957f3e987e0e54b
+        url: https://github.com/lz4/lz4/archive/v1.10.0.tar.gz
+        sha256: 537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b
         x-checker-data:
           type: anitya
           project-id: 1865
@@ -275,8 +275,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.4.tar.gz
-        sha256: ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f
+        url: http://www.tcpdump.org/release/libpcap-1.10.5.tar.gz
+        sha256: 37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0
         x-checker-data:
           type: anitya
           project-id: 1702
