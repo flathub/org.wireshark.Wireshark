@@ -55,12 +55,12 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.29.0.tar.gz
-        sha256: 0b89fa425b825c4c7bc708494f374ae69340e4d1fdc64523bdbb2750bfc02ea7
+        url: https://github.com/c-ares/c-ares/releases/download/v1.33.1/c-ares-1.33.1.tar.gz
+        sha256: 06869824094745872fa26efd4c48e622b9bd82a89ef0ce693dc682a23604f415
         x-checker-data:
           type: anitya
           project-id: 5840
-          url-template: https://c-ares.haxx.se/download/c-ares-$version.tar.gz
+          url-template: https://github.com/c-ares/c-ares/releases/download/v$version/c-ares-$version.tar.gz
 
 
   - name: nghttp2
