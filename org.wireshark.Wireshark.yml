@@ -128,53 +128,15 @@ modules:
       - -DBUILD_SHARED_LIBS=ON
       - -DSNAPPY_BUILD_TESTS=OFF
       - -DCMAKE_BUILD_TYPE=Release
+      - -DSNAPPY_BUILD_BENCHMARKS=OFF
     sources:
       - type: archive
         url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
         sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
-        # Disabled, because 1.1.8 has build failures and getting update proposals by the bot let's the advantages vanish
-        xx-checker-data:
+        x-checker-data:
           type: anitya
           project-id: 4844
           url-template: https://github.com/google/snappy/archive/refs/tags/$version.tar.gz
-
-
-  - name: lz4
-    no-autogen: true
-    make-install-args:
-      - PREFIX=/app
-    cleanup:
-      - /bin
-      - /share/man
-      - /include
-      - /lib/pkgconfig
-      - '*.a'
-      - '*.so'
-    sources:
-      - type: archive
-        url: https://github.com/lz4/lz4/archive/v1.10.0.tar.gz
-        sha256: 537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b
-        x-checker-data:
-          type: anitya
-          project-id: 1865
-          url-template: https://github.com/lz4/lz4/archive/v$version.tar.gz
-
-  - name: zstd
-    buildsystem: meson
-    builddir: true
-    subdir: build/meson
-    config-opts:
-      - -Dbin_programs=false
-      - -Dbin_contrib=false
-      - --buildtype=debugoptimized
-    sources:
-      - type: archive
-        url: https://github.com/facebook/zstd/releases/download/v1.5.6/zstd-1.5.6.tar.gz
-        sha256: 8c29e06cf42aacc1eafc4077ae2ec6c6fcb96a626157e0593d5e82a34fd403c1
-        x-checker-data:
-          type: anitya
-          project-id: 12083
-          url-template: https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz
 
   - name: bcg729
     buildsystem: cmake-ninja
