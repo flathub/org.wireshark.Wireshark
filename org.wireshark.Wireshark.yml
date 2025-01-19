@@ -202,21 +202,29 @@ modules:
 
   - name: libsmi
     sources:
-      - type: archive
-        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
-        sha256: 1d6894aa4aa73f8949ccb420a57e4e1275f8099c187771a41838e30a703269e8
+      - type: git
+        url: https://gitlab.ibr.cs.tu-bs.de/nm/libsmi
+        commit: c58307210fe995ec419db976eb234aebc71a9216
       - type: patch
-        path: libsmi-patches/0002-smi-display-string.patch
+        path: libsmi-patches/01-libsmi-0.4.8-wget111.patch
       - type: patch
-        path: libsmi-patches/0003-smistrip.patch
+        path: libsmi-patches/02-libsmi-c5830721-symbols-clash.patch
       - type: patch
-        path: libsmi-patches/0004-cve-2010-2891.patch
+        path: libsmi-patches/03-libsmi-c5830721-configure-c99.patch
       - type: patch
-        path: libsmi-patches/0005-libsmi-format.patch
+        path: libsmi-patches/04-libsmi-c99.patch
       - type: patch
-        path: libsmi-patches/0006-segfault-bug600076.patch
+        path: libsmi-patches/05-libsmi-c5830721-fix-missing-declaration.patch
       - type: patch
-        path: libsmi-patches/0007-bison-follow-parameter-handling-changes.patch
+        path: libsmi-patches/06-libsmi-c5830721-switch-fixes.patch
+      - type: patch
+        path: libsmi-patches/07-libsmi-c5830721-include-fix.patch
+      - type: patch
+        path: libsmi-patches/08-libsmi-c5830721-missing-semicolon.patch
+      - type: patch
+        path: libsmi-patches/09-libsmi-c5830721-cleanups.patch
+      - type: patch
+        path: libsmi-patches/10-libsmi-c5830721-test-fix-typo.patch
 
   - name: libilbc
     buildsystem: cmake-ninja
