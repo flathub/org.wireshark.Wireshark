@@ -217,6 +217,11 @@ modules:
         path: libsmi-patches/segfault-bug600076.patch
       - type: patch
         path: libsmi-patches/bison-follow-parameter-handling-changes.patch
+      # Upstream uses an outdated version of the config.guess/config.sub script,
+      # so we override it here to fix aarch64 builds.
+      - type: shell
+        commands:
+          - cp -p /usr/share/automake-*/config.{sub,guess} config-aux/
 
   - name: libilbc
     buildsystem: cmake-ninja
