@@ -203,28 +203,20 @@ modules:
   - name: libsmi
     sources:
       - type: archive
-        url: https://gitlab.ibr.cs.tu-bs.de/nm/libsmi/-/archive/c5830721/libsmi-c5830721.tar.gz
-        sha512: f585128c165f0805f2ae953b798cef9bd3a83e10923a4369e4ecda8f3911e2b465c535a6fe8547858ce724eca027f0ef3874637ac5d450469b3226a90592cfd3
+        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
+        sha256: 1d6894aa4aa73f8949ccb420a57e4e1275f8099c187771a41838e30a703269e8
       - type: patch
-        path: libsmi-patches/01-libsmi-0.4.8-wget111.patch
+        path: libsmi-patches/smi-display-string.patch
       - type: patch
-        path: libsmi-patches/02-libsmi-c5830721-symbols-clash.patch
+        path: libsmi-patches/smistrip.patch
       - type: patch
-        path: libsmi-patches/03-libsmi-c5830721-configure-c99.patch
+        path: libsmi-patches/cve-2010-2891.patch
       - type: patch
-        path: libsmi-patches/04-libsmi-c99.patch
+        path: libsmi-patches/libsmi-format.patch
       - type: patch
-        path: libsmi-patches/05-libsmi-c5830721-fix-missing-declaration.patch
+        path: libsmi-patches/segfault-bug600076.patch
       - type: patch
-        path: libsmi-patches/06-libsmi-c5830721-switch-fixes.patch
-      - type: patch
-        path: libsmi-patches/07-libsmi-c5830721-include-fix.patch
-      - type: patch
-        path: libsmi-patches/08-libsmi-c5830721-missing-semicolon.patch
-      - type: patch
-        path: libsmi-patches/09-libsmi-c5830721-cleanups.patch
-      - type: patch
-        path: libsmi-patches/10-libsmi-c5830721-test-fix-typo.patch
+        path: libsmi-patches/bison-follow-parameter-handling-changes.patch
 
   - name: libilbc
     buildsystem: cmake-ninja

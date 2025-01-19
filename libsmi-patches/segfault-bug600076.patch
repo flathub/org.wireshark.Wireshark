@@ -1,0 +1,67 @@
+This patch is stolen from SVN and fix a memory problem with malformed MIB.
+
+    A patch suggested by Cedric Arbogast <arbogast.cedric@gmail.com>
+    and Vincent Bernat <bernat@luffy.cx> that avoids freeing memory
+    of pending nodes that in certain situations are still being used.
+
+This also means that we get a memory leak. But better a memory leak
+than a segfault. Right?
+
+diff --git a/lib/parser-smi.y b/lib/parser-smi.y
+index ecab924..bc0f6db 100644
+--- a/lib/parser-smi.y
++++ b/lib/parser-smi.y
+@@ -702,6 +702,7 @@ checkObjects(Parser *parserPtr, Module *modulePtr)
+ 		     nodePtr->parentPtr != thisParserPtr->pendingNodePtr &&
+ 			 nodePtr->parentPtr != smiHandle->rootNodePtr &&
+ 			 nodePtr != nodePtr->parentPtr &&
++			 nodePtr->parentPtr != NULL &&
+ 			 i <= 128;
+ 		     nodePtr = nodePtr->parentPtr, i++);
+ 		if ((objectPtr->export.name) &&
+diff --git a/lib/smi-data.c b/lib/smi-data.c
+index b7e9b2f..60ce8d5 100644
+--- a/lib/data.c
++++ b/lib/data.c
+@@ -4656,8 +4656,20 @@ Module *loadModule(const char *modulename, Parser *parserPtr)
+ 	smiDepth++;
+ 	parser.line			= 1;
+ 	smiparse((void *)&parser);
++#if 0
++	/*
++	 * These nodes seem to be referenced in certain situations and
++	 * thus freeing them causes problems. So we better do not free
++	 * until we have sorted out how to free safely.
++	 *
++	 * http://www.ibr.cs.tu-bs.de/pipermail/libsmi/2010-August/001214.html
++	 * http://www.ibr.cs.tu-bs.de/pipermail/libsmi/2011-May/001249.html
++	 *
++	 * (see also below for the sming version)
++	 */
+ 	freeNodeTree(parser.pendingNodePtr);
+ 	smiFree(parser.pendingNodePtr);
++#endif
+ 	smiLeaveLexRecursion();
+ 	smiDepth--;
+ 	fclose(parser.file);
+@@ -4699,8 +4711,20 @@ Module *loadModule(const char *modulename, Parser *parserPtr)
+ 	smiDepth++;
+ 	parser.line			= 1;
+ 	smingparse((void *)&parser);
++#if 0
++	/*
++	 * These nodes seem to be referenced in certain situations and
++	 * thus freeing them causes problems. So we better do not free
++	 * until we have sorted out how to free safely.
++	 *
++	 * http://www.ibr.cs.tu-bs.de/pipermail/libsmi/2010-August/001214.html
++	 * http://www.ibr.cs.tu-bs.de/pipermail/libsmi/2011-May/001249.html
++	 *
++	 * (see also above for the smi version)
++	 */
+ 	freeNodeTree(parser.pendingNodePtr);
+ 	smiFree(parser.pendingNodePtr);
++#endif
+ 	smingLeaveLexRecursion();
+ 	smiDepth--;
+ 	fclose(parser.file);

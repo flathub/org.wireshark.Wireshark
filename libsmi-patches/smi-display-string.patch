@@ -1,0 +1,12 @@
+Fix for #499098. Correctly handle DisplayString for octet string.
+
+--- a/lib/smi.c.orig	2008-09-11 10:56:29.000000000 +0200
++++ a/lib/smi.c	2008-09-11 10:56:33.000000000 +0200
+@@ -2134,6 +2134,7 @@
+ 	break;
+     case SMI_BASETYPE_OCTETSTRING:
+ 	if (!(flags & SMI_RENDER_FORMAT) ||
++            (!smiTypePtr->format && !smiTypePtr->name) ||
+ 	    (!smiTypePtr->format &&
+ 	     (smiTypePtr->name && strcmp( smiTypePtr->name, "IpAddress")) ) ) {
+ 	    for (i = 0; i < smiValuePtr->len; i++) {
