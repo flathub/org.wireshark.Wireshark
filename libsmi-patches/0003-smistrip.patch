@@ -1,0 +1,215 @@
+Fix for #558128. smistrip enhancements.
+
+--- a/tools/smistrip.in	2009-11-25 13:01:14.000000000 +0100
++++ b/tools/smistrip.in	2009-11-26 16:41:57.000000000 +0100
+@@ -5,6 +5,13 @@
+ #	Extract MIB and PIB modules from text files, like RFCs or I-Ds.
+ #
+ # Copyright (c) 1999 Frank Strauss, Technical University of Braunschweig.
++# Copyright (c) Niels Baggesen, Jochen Friedrich
++#
++# Modified by Niels Baggesen to be somewhat more aggressive in suppressing
++# blank lines, and support the -x option.
++#
++# Modified by Jochen Friedrich to merge the changes of libsmi back in and
++# make the aggressive suppressing of blank lines optional.
+ #
+ # See the file "COPYING" for information on usage and redistribution
+ # of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+@@ -27,13 +34,17 @@
+ 
+ 
+ do_usage () {
+-    echo "Usage: smistrip [-Vhn] [-i dir] [-d dir] [-m module] file1 [file2 [...]]"
++    echo "Usage: smistrip [-Vvhna] [-i dir] [-d dir] [-s suffix] [-m modules] file1 [file2 [...]]"
+     echo "-V         show version and license information"
++    echo "-v         verbose"
+     echo "-h         show usage information"
+     echo "-n         do not write module files"
++    echo "-a         strip blank lines more aggressively"
+     echo "-i dir     try to read files from directory dir"
+     echo "-d dir     write module to directory dir"
+-    echo "-m module  strip only the specified module"
++    echo "-x suffix  append suffix to the module file name"
++    echo "-m modules strip only the specified modules. For a list of modules"
++    echo "           use : as a separator"
+     echo "file1 ...  input files to parse (RFCs, I-Ds, ...)"
+ }
+ 
+@@ -57,65 +68,90 @@
+ 
+     $CMD "$FILE" | \
+     tr -d '\015' | \
+-    grep -i -v '^[ ]*Internet[ \-]Draft' | \
+-    $AWK -vtest="$test" -vdir="$dir" -vsingle="$single" '
++    $AWK -vtest="$test" -vdir="$dir" -vsingle="$single" -vsuffix="$suffix" -vverbose="$verbose" -vaggressive="$aggressive" '
++
++    BEGIN {
++	if (length(single) != 0) {
++	    single = ":"single":"
++	}
++	else {
++	    single = ""
++	}
++    }
++
++    END {
++	if (single != "" && single != ":") {
++	    gsub(":", " ", single)
++	    print "WARNING: Module(s) not found:" single
++	}
++    }
+ 
+     # start of module
+     /^[ \t]*[A-Za-z0-9-]* *(PIB-)?DEFINITIONS *(::=)? *(BEGIN)? *$/ {
+ 	module = $1
+-	skip = 9
+-	skipped = -1
++	collect = 1
+ 	macro = 0
++	skip = 0
+ 	n = 0
+     }
+ 
+-    # process each line
+-    {
+-	# at the end of a page we go back one line (which is expected to
+-	# be a separator line), and start the counter skipped to skip the
+-	# next few lines.
+-	if ($0 ~ /\[[pP]age [iv0-9]*\] */) {
+-            # some drafts do not use that separator line. so keep it if
+-            # there are non-blank characters.
+-            if (!(line[n] ~ /^[ \t]*$/)) { print "WARNING: the line ::"line[n]":: should be a separator before a page break. It was kept. " ; n-- }
+-	    skipped = 0
+-	}
+-
+-	# if we are skipping...
+-	if (skipped >= 0) {
+-	    skipped++
+-
+-	    # if we have skipped enough lines to the top of the next page...
+-	    if (skipped >= skip) {
+-		skipped = -1
+-	    } else {
+-    
+-	    	# finish skipping, if we find a non-empty line, but not before
+-	    	# we have skipped four lines. remember the miminum of lines
+-	    	# we have ever skipped to keep empty lines in a modules that
+-	    	# appear near the top of a page.
+-	    	if ((skipped >= 4) && ($0 ~ /[^ \t]/)) {
+-		    if (skipped < skip) { skip = skipped }
+-		    skipped = -1
+-	    	}   
++    # at the end of a page we go back one line (which is expected to
++    # be a separator line), and start the counter skipped to skip the
++    # next few lines.
++    /\[[pP]age [iv0-9]*\] */ {
++	# some drafts do not use that separator line. so keep it if
++	# there are non-blank characters.
++	if (!aggressive && n && collect) {
++	    if (!(line[n-1] == ""))
++		print "WARNING: the line ::"line[n-1]":: should be a separator before a page break. It was kept. ";
++	    else n--;
++	    skip = 3
++	}
++	collect = 0
++	next
++    }
++
++    /^[ \t]*(::=|DESCRIPTION|SYNTAX|MAX-ACCESS|MIN-ACCESS|ACCESS|STATUS|REFERENCE|INDEX|AUGMENTS|DEFVAL|UNITS|DISPLAY|")/ {
++	skip = 0
++	if (collect && aggressive)
++	    if (line[n-1] == "") n--
++    }
++
++    # a blank line - suppress multiple
++    /^[ \t\r]*$/ {
++        if (collect && (skip == 0)) {
++	    if (aggressive && n) {
++                if (line[n-1] != "" && line[n-1] !~ /,[ \t\r]*$/) line[n++] = ""
+ 	    }
++	    else line[n++] = ""
+ 	}
++	if (skip > 0) skip--;
++        next
++    }
+ 
+-	# so, if we are not skipping and inside a module, remember the line.
+-        if ((skipped == -1) && (length(module) > 0)) {
+-	    line[n++] = $0
++    # collect non-blank line when inside mib module
++    /[^ \f\t]/ {
++	if (length(module) > 0) {
++	    if (!collect)
++		collect = 1     # page header, stop skipping
++	    else if (skip == 0)
++		line[n++] = $0
+ 	}
++	if (skip > 0) skip--;
+     }
+ 
+     # remember when we enter a macro definition
+     /^[ \t]*[A-Za-z0-9-]* *MACRO *::=/ {
+ 	macro = 1
++	skip = 0
+     }
+ 
+     # end of module
+     /^[ \t]*END[ \t]*$/ {
++	skip = 0
+ 	if (macro == 0) {
+-	    if ((length(single) == 0) || (single == module)) {
++	    if (single == "" || match(single, ":"module":")) {
++	        sub(":"module, "", single)
+ 		strip = 99
+ 		for (i=0 ; i < n ; i++) {
+ 		    # find the minimum column that contains non-blank characters
+@@ -129,17 +165,21 @@
+     
+ 		if (test != "1") {
+ 		    if (dir) {
+-		       f = dir"/"module
++		       f = dir"/"module suffix
+ 		    } else {
+-		       f = module
++		       f = module suffix
+ 		    }
+ 		    for (i=0 ; i < n ; i++) {
+ 			print substr(line[i], strip) >f
+ 		    }
+ 		}
++		if (verbose) {
++		    print module ": " n " lines."
++		}
+     
+-		print module ": " n " lines."
+ 	    }
++	    else
++		print "NOTE: " module ": ignored."
+ 	    module = ""
+ 	} else {
+ 	    macro = 0
+@@ -150,16 +190,22 @@
+ 
+ 
+ 
+-while $GETOPTS Vhnm:i:d: c ; do
++while $GETOPTS Vvhnam:i:d:x: c ; do
+     case $c in
++	v)	verbose=1
++		;;
+ 	n)	test=1
+ 		;;
++	a)	aggressive=1
++		;;
+ 	m)	single=$OPTARG
+ 		;;
+ 	i)	indir=$OPTARG
+ 		;;
+ 	d)	dir=$OPTARG
+ 		;;
++	x)	suffix=$OPTARG
++		;;
+ 	h)	do_usage
+ 		exit 0
+ 		;;
