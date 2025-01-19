@@ -202,9 +202,9 @@ modules:
 
   - name: libsmi
     sources:
-      - type: git
-        url: https://gitlab.ibr.cs.tu-bs.de/nm/libsmi
-        commit: c58307210fe995ec419db976eb234aebc71a9216
+      - type: archive
+        url: https://gitlab.ibr.cs.tu-bs.de/nm/libsmi/-/archive/c5830721/libsmi-c5830721.tar.gz
+        sha512: f585128c165f0805f2ae953b798cef9bd3a83e10923a4369e4ecda8f3911e2b465c535a6fe8547858ce724eca027f0ef3874637ac5d450469b3226a90592cfd3
       - type: patch
         path: libsmi-patches/01-libsmi-0.4.8-wget111.patch
       - type: patch
