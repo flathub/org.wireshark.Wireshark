@@ -221,7 +221,7 @@ modules:
       # so we override it here to fix aarch64 builds.
       - type: shell
         commands:
-          - cp -p /usr/share/automake-*/config.{sub,guess} config-aux/
+          - cp -p /usr/share/automake-*/config.{sub,guess} .
 
   - name: libilbc
     buildsystem: cmake-ninja
