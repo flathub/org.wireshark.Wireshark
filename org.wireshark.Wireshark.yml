@@ -202,26 +202,37 @@ modules:
 
   - name: libsmi
     sources:
+        # original libsmi sources, download from Debian repo because upstream download is dead
       - type: archive
-        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
+        url: https://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
         sha256: 1d6894aa4aa73f8949ccb420a57e4e1275f8099c187771a41838e30a703269e8
-      - type: patch
-        path: libsmi-patches/smi-display-string.patch
-      - type: patch
-        path: libsmi-patches/smistrip.patch
-      - type: patch
-        path: libsmi-patches/cve-2010-2891.patch
-      - type: patch
-        path: libsmi-patches/libsmi-format.patch
-      - type: patch
-        path: libsmi-patches/segfault-bug600076.patch
-      - type: patch
-        path: libsmi-patches/bison-follow-parameter-handling-changes.patch
-      # Upstream uses an outdated version of the config.guess/config.sub script,
-      # so we override it here to fix aarch64 builds.
+        x-checker-data:
+          type: debian-repo
+          root: https://deb.debian.org/debian/
+          dist: unstable
+          component: main
+          package-name: libsmi2-dev
+          source: true
+        # Debian packaging sources, download to get patches. x-checker-data to get notifications for new releases of the Debian package
+        # When package gets an update: read Changelog to check for new patches or other relevant changes
+      - type: archive
+        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2-17.debian.tar.xz
+        sha256: e6504a6002e2ff2c43192fd174b47f0480ca5465dd2559fd4e7c3dd846968dd8
+        strip-components: 0
+        x-checker-data:
+          type: html
+          url: https://packages.debian.org/en/sid/libsmi2-dev
+          version-pattern: libsmi2-dev \((0.4.8\+dfsg\d+-[\d.]+) and others\)
+          url-template: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_$version.debian.tar.xz
       - type: shell
         commands:
           - cp -p /usr/share/automake-*/config.{sub,guess} .
+          - git apply debian/patches/smi-display-string.patch
+          - git apply debian/patches/smistrip.patch
+          - git apply debian/patches/cve-2010-2891.patch
+          - git apply debian/patches/libsmi-format.patch
+          - git apply debian/patches/segfault-bug600076.patch
+          - git apply debian/patches/bison-follow-parameter-handling-changes.patch
 
   - name: libilbc
     buildsystem: cmake-ninja
