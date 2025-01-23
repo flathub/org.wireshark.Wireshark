@@ -1,6 +1,6 @@
 app-id: org.wireshark.Wireshark
 runtime: org.kde.Platform
-runtime-version: 6.7
+runtime-version: 6.8
 sdk: org.kde.Sdk
 command: wireshark
 finish-args:
@@ -202,9 +202,32 @@ modules:
 
   - name: libsmi
     sources:
+        # original libsmi sources, download from Debian repo because upstream download is dead
       - type: archive
-        url: https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.5.0.tar.gz
-        sha256: f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3
+        url: https://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
+        sha256: 1d6894aa4aa73f8949ccb420a57e4e1275f8099c187771a41838e30a703269e8
+        x-checker-data:
+          type: debian-repo
+          root: https://deb.debian.org/debian/
+          dist: unstable
+          component: main
+          package-name: libsmi2-dev
+          source: true
+        # Debian packaging sources, download to get patches. x-checker-data to get notifications for new releases of the Debian package
+        # When package gets an update: read Changelog to check for new patches or other relevant changes
+      - type: archive
+        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2-17.debian.tar.xz
+        sha256: e6504a6002e2ff2c43192fd174b47f0480ca5465dd2559fd4e7c3dd846968dd8
+        strip-components: 0
+        x-checker-data:
+          type: html
+          url: https://packages.debian.org/en/sid/libsmi2-dev
+          version-pattern: libsmi2-dev \((0.4.8\+dfsg\d+-[\d.]+) and others\)
+          url-template: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_$version.debian.tar.xz
+      - type: shell
+        commands:
+          - cp -p /usr/share/automake-*/config.{sub,guess} . # fix outdated config files
+          - for patchfile in debian/patches/*.patch; do patch -p1 < "$patchfile"; done # apply all patches from Debian package
 
   - name: libilbc
     buildsystem: cmake-ninja
