@@ -224,19 +224,10 @@ modules:
           url: https://packages.debian.org/en/sid/libsmi2-dev
           version-pattern: libsmi2-dev \((0.4.8\+dfsg\d+-[\d.]+) and others\)
           url-template: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_$version.debian.tar.xz
-      - type: script
-        dest-filename: autogen.sh
-        commands:
-          - autoreconf -fi
       - type: shell
         commands:
-          #- cp -p /usr/share/automake-*/config.{sub,guess} .
-          - git apply debian/patches/smi-display-string.patch
-          - git apply debian/patches/smistrip.patch
-          - git apply debian/patches/cve-2010-2891.patch
-          - git apply debian/patches/libsmi-format.patch
-          - git apply debian/patches/segfault-bug600076.patch
-          - git apply debian/patches/bison-follow-parameter-handling-changes.patch
+          - cp -p /usr/share/automake-*/config.{sub,guess} . # fix outdated config files
+          - for patchfile in debian/patches/*.patch; do patch -p1 < "$patchfile"; done # apply all patches from Debian package
 
   - name: libilbc
     buildsystem: cmake-ninja
