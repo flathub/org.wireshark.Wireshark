@@ -224,9 +224,13 @@ modules:
           url: https://packages.debian.org/en/sid/libsmi2-dev
           version-pattern: libsmi2-dev \((0.4.8\+dfsg\d+-[\d.]+) and others\)
           url-template: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_$version.debian.tar.xz
+      - type: script
+        dest-filename: autogen.sh
+        commands:
+          - autoreconf -fi
       - type: shell
         commands:
-          - cp -p /usr/share/automake-*/config.{sub,guess} .
+          #- cp -p /usr/share/automake-*/config.{sub,guess} .
           - git apply debian/patches/smi-display-string.patch
           - git apply debian/patches/smistrip.patch
           - git apply debian/patches/cve-2010-2891.patch
