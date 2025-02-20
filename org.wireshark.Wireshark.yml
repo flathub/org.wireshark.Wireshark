@@ -227,7 +227,8 @@ modules:
       - type: shell
         commands:
           - cp -p /usr/share/automake-*/config.{sub,guess} . # fix outdated config files
-          - for patchfile in debian/patches/*.patch; do patch -p1 < "$patchfile"; done # apply all patches from Debian package
+          - for patchfile in debian/patches/*.patch; do patch -p1 < "$patchfile";
+            done                                                                       # apply all patches from Debian package
 
   - name: libilbc
     buildsystem: cmake-ninja
@@ -280,8 +281,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.4.3.tar.xz
-        sha256: 2abb53b958a7701c239093706d373e199ac183550904d490e173b91195e2fab6
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.4.4.tar.xz
+        sha256: 5154d2b741ec928b1bdb5eba60e29536f78907b21681a7fe18c652f4db44b1f1
         x-checker-data:
           type: anitya
           project-id: 5137
