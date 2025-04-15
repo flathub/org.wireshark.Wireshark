@@ -55,8 +55,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/c-ares/c-ares/releases/download/v1.34.4/c-ares-1.34.4.tar.gz
-        sha256: fa38dbed659ee4cc5a32df5e27deda575fa6852c79a72ba1af85de35a6ae222f
+        url: https://github.com/c-ares/c-ares/releases/download/v1.34.5/c-ares-1.34.5.tar.gz
+        sha256: 7d935790e9af081c25c495fd13c2cfcda4792983418e96358ef6e7320ee06346
         x-checker-data:
           type: anitya
           project-id: 5840
@@ -69,8 +69,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.64.0/nghttp2-1.64.0.tar.gz
-        sha256: 20e73f3cf9db3f05988996ac8b3a99ed529f4565ca91a49eb0550498e10621e8
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.65.0/nghttp2-1.65.0.tar.gz
+        sha256: 8ca4f2a77ba7aac20aca3e3517a2c96cfcf7c6b064ab7d4a0809e7e4e9eb9914
         x-checker-data:
           type: anitya
           project-id: 8651
@@ -175,8 +175,8 @@ modules:
     sources:
       - type: git
         url: https://git.kernel.org/pub/scm/bluetooth/sbc.git
-        tag: '2.0'
-        commit: 8dc5d5ba381512ad5b1afa45c63ec6b0a3833244
+        tag: '2.1'
+        commit: 9b6c775f02b1ea944c8a203452ce23d7854e9187
         x-checker-data:
           type: git
 
@@ -281,8 +281,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.4.4.tar.xz
-        sha256: 5154d2b741ec928b1bdb5eba60e29536f78907b21681a7fe18c652f4db44b1f1
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.4.5.tar.xz
+        sha256: 02346f7de3d50678c200189a2ecbf4747fd83fbfc5850cadfd428fd9b1544428
         x-checker-data:
           type: anitya
           project-id: 5137
