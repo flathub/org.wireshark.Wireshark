@@ -1,24 +1,19 @@
-From 245e5045f9bd30b83f5fd35f68f2c5acccea9cbf Mon Sep 17 00:00:00 2001
-From: Bastien Nocera <hadess@hadess.net>
-Date: Wed, 23 Nov 2022 11:55:24 +0100
-Subject: [PATCH] Mention that data capture isn't possible
-
-Data capture is not available in the Flathub version of Wireshark
-because of permission problems. Mention it so folks aren't struggling to
-figure out why it doesn't work.
-
-See https://github.com/flathub/org.wireshark.Wireshark/issues/4
----
- .../org.wireshark.Wireshark.metainfo.xml         | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
-index 38832d8..783ae81 100644
---- a/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
-+++ b/resources/freedesktop/org.wireshark.Wireshark.metainfo.xml
-@@ -15,10 +15,9 @@
+--- ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml	2025-04-16 21:48:19.000000000 +0530
++++ ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml	2025-06-06 07:33:14.187745605 +0530
+@@ -9,18 +9,19 @@
+     <id>org.wireshark.Wireshark</id>
+     <launchable type="desktop-id">org.wireshark.Wireshark.desktop</launchable>
+     <name>Wireshark</name>
+-    <summary>Network protocol analyzer</summary>
++    <summary>Network protocol analyzer (without capture support)</summary>
+     <developer_name>The Wireshark developer community</developer_name>
+     <content_rating type="oars-1.1"/>
+     <metadata_license>CC0-1.0</metadata_license>
+     <project_license>GPL-2.0</project_license>
      <!-- NOTE: the below description was copied from packaging/rpm/SPECS/wireshark.spec.in -->
      <description>
++    <p><em>** NOTE **</em> This version of Wireshark does not support capturing data.</p>
++    <p xml:lang="fr"><em>** NOTE **</em> Cette version de Wireshark ne supporte pas la capture de données.</p>
      <p>
 -	Wireshark allows you to examine protocol data stored in files or as it
 -	is captured from wired or wireless (WiFi or Bluetooth) networks, USB
@@ -30,34 +25,16 @@ index 38832d8..783ae81 100644
      </p>
      <p>
  	It has many powerful features including a rich display filter language
-@@ -27,13 +26,15 @@
- 	which was transferred over HTTP or CIFS, or play back an RTP audio
- 	stream.
-     </p>
-+    <p>
-+	NOTE: This version of Wireshark does not support capturing data.
-+    </p>
-     <p xml:lang="fr">
- 	Wireshark est le principal analyseur de protocole au monde.
+@@ -34,10 +35,8 @@
      </p>
      <p xml:lang="fr">
  	Wireshark vous permet d’examiner les données enregistrées dans des
 -	fichiers ou en temps réel sur un réseau câblé ou sans fil (WiFi ou
 -	Bluetooth), à partir d’équipement USB et de bien d’autres sources.
-+	fichiers.
- 	Il supporte des dizaines de formats de fichiers de capture de
- 	protocoles et comprend plus d’un millier de protocoles.
+-	Il supporte des dizaines de formats de fichiers de capture de
+-	protocoles et comprend plus d’un millier de protocoles.
++	fichiers. Il supporte des dizaines de formats de fichiers de capture
++	de protocoles et comprend plus d’un millier de protocoles.
      </p>
-@@ -44,6 +45,9 @@
- 	un flux TCP, de sauvegarder le contenu d’un fichier transféré par
- 	HTTP ou CIFS, ou de re-jouer un flux audio RTP.
-     </p>
-+    <p xml:lang="fr">
-+	NOTE: Cette version de Wireshark ne supporte pas la capture de données.
-+    </p>
-     </description>
-     <url type="homepage">https://www.wireshark.org</url>
-     <screenshots>
--- 
-2.38.1
-
+     <p xml:lang="fr">
+ 	Il dispose de nombreuses fonctionnalités puissantes dont un riche
