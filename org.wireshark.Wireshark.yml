@@ -2,7 +2,7 @@ app-id: org.wireshark.Wireshark
 runtime: org.kde.Platform
 runtime-version: 6.9
 sdk: org.kde.Sdk
-command: wireshark
+command: wireshark-wrapper
 finish-args:
   - --socket=fallback-x11
   - --share=ipc
@@ -289,3 +289,16 @@ modules:
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
       - type: patch
         path: 0001-Mention-that-data-capture-isn-t-possible.patch
+
+
+  - name: wireshark-wrapper
+    buildsystem: simple
+    build-commands:
+      - install -Dm0755 wireshark-wrapper.sh ${FLATPAK_DEST}/bin/wireshark-wrapper
+      - |
+        desktop-file-edit --set-key="Exec" --set-value="wireshark-wrapper %f" \
+          --set-key="TryExec" --set-value="wireshark-wrapper" \
+          ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+    sources:
+      - type: file
+        path: wireshark-wrapper.sh
