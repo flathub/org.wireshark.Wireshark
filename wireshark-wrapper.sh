@@ -13,7 +13,7 @@ if [[ "${SKIP_WARNING:-0}" != "1" ]]; then
       --height=100 \
       --ok-label="Run Wireshark" \
       --cancel-label="Exit" \
-      --text="⚠️  This Wireshark package does not support capturing data.\n\nPress \"Exit\" to close, \"Run Wireshark\" to continue"; then
+      --text="This Wireshark package does not support capturing data.\n\nPress \"Exit\" to close, \"Run Wireshark\" to continue"; then
       mkdir -p "$STATE_DIR" && touch "$STATE_FILE"
     else
       echo "Exiting."
