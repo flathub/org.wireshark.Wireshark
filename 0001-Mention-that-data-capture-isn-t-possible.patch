@@ -12,8 +12,8 @@
      <project_license>GPL-2.0</project_license>
      <!-- NOTE: the below description was copied from packaging/rpm/SPECS/wireshark.spec.in -->
      <description>
-+    <p><em>** NOTE **</em> This version of Wireshark does not support capturing data.</p>
-+    <p xml:lang="fr"><em>** NOTE **</em> Cette version de Wireshark ne supporte pas la capture de données.</p>
++    <p>**NOTE: This version of Wireshark does not support capturing data.**</p>
++    <p xml:lang="fr">**NOTE: Cette version de Wireshark ne supporte pas la capture de données.**</p>
      <p>
 -	Wireshark allows you to examine protocol data stored in files or as it
 -	is captured from wired or wireless (WiFi or Bluetooth) networks, USB
