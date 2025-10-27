@@ -1,14 +1,15 @@
---- ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml	2025-04-16 21:48:19.000000000 +0530
-+++ ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml	2025-06-06 07:33:14.187745605 +0530
-@@ -9,18 +9,19 @@
+--- ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml.orig	2025-10-08 09:55:14.000000000 -0700
++++ ./resources/freedesktop/org.wireshark.Wireshark.metainfo.xml	2025-10-27 09:22:26.162806088 -0700
+@@ -9,7 +9,7 @@
      <id>org.wireshark.Wireshark</id>
      <launchable type="desktop-id">org.wireshark.Wireshark.desktop</launchable>
      <name>Wireshark</name>
 -    <summary>Network protocol analyzer</summary>
 +    <summary>Network protocol analyzer (without capture support)</summary>
-     <developer_name>The Wireshark developer community</developer_name>
-     <content_rating type="oars-1.1"/>
-     <metadata_license>CC0-1.0</metadata_license>
+     <developer id="org.wireshark">
+         <name>The Wireshark developer community</name>
+     </developer>
+@@ -18,10 +18,11 @@
      <project_license>GPL-2.0</project_license>
      <!-- NOTE: the below description was copied from packaging/rpm/SPECS/wireshark.spec.in -->
      <description>
@@ -18,14 +19,12 @@
 -	Wireshark allows you to examine protocol data stored in files or as it
 -	is captured from wired or wireless (WiFi or Bluetooth) networks, USB
 -	devices, and many other sources.  It supports dozens of protocol
--	capture file formats and understands more than a thousand protocols.
 +	Wireshark allows you to examine protocol data stored in files.
-+	It supports dozens of protocol capture file formats and understands
-+	more than a thousand protocols.
++	It supports dozens of protocol
+ 	capture file formats and understands thousands of protocols.
      </p>
      <p>
- 	It has many powerful features including a rich display filter language
-@@ -34,10 +35,8 @@
+@@ -36,10 +37,8 @@
      </p>
      <p xml:lang="fr">
  	Wireshark vous permet d’examiner les données enregistrées dans des
