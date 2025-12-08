@@ -55,8 +55,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/c-ares/c-ares/releases/download/v1.34.5/c-ares-1.34.5.tar.gz
-        sha256: 7d935790e9af081c25c495fd13c2cfcda4792983418e96358ef6e7320ee06346
+        url: https://github.com/c-ares/c-ares/releases/download/v1.34.6/c-ares-1.34.6.tar.gz
+        sha256: 912dd7cc3b3e8a79c52fd7fb9c0f4ecf0aaa73e45efda880266a2d6e26b84ef5
         x-checker-data:
           type: anitya
           project-id: 5840
@@ -216,8 +216,8 @@ modules:
         # Debian packaging sources, download to get patches. x-checker-data to get notifications for new releases of the Debian package
         # When package gets an update: read Changelog to check for new patches or other relevant changes
       - type: archive
-        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2-17.debian.tar.xz
-        sha256: e6504a6002e2ff2c43192fd174b47f0480ca5465dd2559fd4e7c3dd846968dd8
+        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2-18.debian.tar.xz
+        sha256: f0eb0afc4d2bd18930d75fef9422f7369fbf1b34ce6b1be82a8d493e3ea6ab0e
         strip-components: 0
         x-checker-data:
           type: html
