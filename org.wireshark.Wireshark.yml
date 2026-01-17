@@ -96,6 +96,10 @@ modules:
           type: anitya
           project-id: 1847
           url-template: https://www.lua.org/ftp/lua-$version.tar.gz
+          # https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html
+          # The docs currently mention Lua 5.4 only; let's re-check every so often whether 5.5 is supported
+          versions:
+            <: "5.5"
 
 
   - name: libmaxminddb
