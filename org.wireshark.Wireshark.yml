@@ -293,6 +293,8 @@ modules:
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
       - type: patch
         path: 0001-Mention-that-data-capture-isn-t-possible.patch
+      - type: patch
+        path: 17648.patch
 
 
   - name: wireshark-wrapper
