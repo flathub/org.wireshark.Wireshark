@@ -1,13 +1,10 @@
 app-id: org.wireshark.Wireshark
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
-command: wireshark
-rename-icon: wireshark
-rename-desktop-file: wireshark.desktop
-rename-appdata-file: wireshark.appdata.xml
+command: wireshark-wrapper
 finish-args:
-  - --socket=x11
+  - --socket=fallback-x11
   - --share=ipc
   - --socket=wayland
   - --device=dri
@@ -23,15 +20,16 @@ modules:
     subdir: contrib/minizip
     sources:
       - type: archive
-        url: https://zlib.net/zlib-1.2.11.tar.gz
-        sha256: c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+        url: https://zlib.net/zlib-1.3.1.tar.gz
+        sha256: 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23
         x-checker-data:
           type: anitya
           project-id: 5303
           url-template: https://zlib.net/zlib-$version.tar.gz
 
       - type: script
-        dest-filename: contrib/minizip/autogen.sh
+        dest: contrib/minizip/
+        dest-filename: autogen.sh
         commands:
           - autoreconf -ifv
 
@@ -43,8 +41,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.9.5.tar.gz
-        sha256: df65d6054554e8ff5458628808ce8d68b928175f4fefa1c833582b9568491e64
+        url: https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.11.3.tar.gz
+        sha256: aac65c6ee8cfd93a54ac93a198f4c12e6a5e988954f5603ffe00b7f01caab7eb
         x-checker-data:
           type: anitya
           project-id: 1729
@@ -57,12 +55,12 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
-        sha256: d73dd0f6de824afd407ce10750ea081af47eba52b8a6cb307d220131ad93fc40
+        url: https://github.com/c-ares/c-ares/releases/download/v1.34.6/c-ares-1.34.6.tar.gz
+        sha256: 912dd7cc3b3e8a79c52fd7fb9c0f4ecf0aaa73e45efda880266a2d6e26b84ef5
         x-checker-data:
           type: anitya
           project-id: 5840
-          url-template: https://c-ares.haxx.se/download/c-ares-$version.tar.gz
+          url-template: https://github.com/c-ares/c-ares/releases/download/v$version/c-ares-$version.tar.gz
 
 
   - name: nghttp2
@@ -71,20 +69,37 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://github.com/nghttp2/nghttp2/releases/download/v1.43.0/nghttp2-1.43.0.tar.gz
-        sha256: 45cc3ed91966551f92b31958ceca9b3a9f23ce4faf5cbedb78aa3327cd4e5907
+        url: https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz
+        sha256: 2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013
         x-checker-data:
           type: anitya
           project-id: 8651
           url-template: https://github.com/nghttp2/nghttp2/releases/download/v$version/nghttp2-$version.tar.gz
 
 
-  - name: lua52
-    disabled: true   # How to build lua5.2?
+  - name: lua54
+    cleanup:
+      - /include
+      - /man
+      - /share
+    no-autogen: true
+    make-args:
+      - MYCFLAGS=-fPIC
+      - linux
+    make-install-args:
+      - INSTALL_TOP=/app
     sources:
       - type: archive
-        url: https://www.lua.org/ftp/lua-5.2.4.tar.gz
-        sha256: b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
+        url: https://www.lua.org/ftp/lua-5.4.8.tar.gz
+        sha256: 4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
+        x-checker-data:
+          type: anitya
+          project-id: 1847
+          url-template: https://www.lua.org/ftp/lua-$version.tar.gz
+          # https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html
+          # The docs currently mention Lua 5.4 only; let's re-check every so often whether 5.5 is supported
+          versions:
+            <: '5.5'
 
 
   - name: libmaxminddb
@@ -117,56 +132,15 @@ modules:
       - -DBUILD_SHARED_LIBS=ON
       - -DSNAPPY_BUILD_TESTS=OFF
       - -DCMAKE_BUILD_TYPE=Release
+      - -DSNAPPY_BUILD_BENCHMARKS=OFF
     sources:
       - type: archive
-        url: https://github.com/google/snappy/archive/refs/tags/1.1.8.tar.gz
-        sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
-        # Disabled, because 1.1.8 has build failures and getting update proposals by the bot let's the advantages vanish
-        xx-checker-data:
+        url: https://github.com/google/snappy/archive/refs/tags/1.2.2.tar.gz
+        sha256: 90f74bc1fbf78a6c56b3c4a082a05103b3a56bb17bca1a27e052ea11723292dc
+        x-checker-data:
           type: anitya
           project-id: 4844
           url-template: https://github.com/google/snappy/archive/refs/tags/$version.tar.gz
-
-
-  - name: lz4
-    no-autogen: true
-    make-install-args:
-      - PREFIX=/app
-    cleanup:
-      - /bin
-      - /share/man
-      - /include
-      - /lib/pkgconfig
-      - '*.a'
-      - '*.so'
-    sources:
-      - type: archive
-        url: https://github.com/lz4/lz4/archive/v1.9.3.tar.gz
-        sha256: 030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1
-        x-checker-data:
-          type: anitya
-          project-id: 1865
-          url-template: https://github.com/lz4/lz4/archive/v$version.tar.gz
-
-  - name: zstd
-    buildsystem: meson
-    builddir: true
-    subdir: build/meson
-    config-opts:
-      - -Dbin_programs=false
-      - -Dbin_contrib=false
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: archive
-        url: https://github.com/facebook/zstd/releases/download/v1.4.9/zstd-1.4.9.tar.gz
-        sha256: 29ac74e19ea28659017361976240c4b5c5c24db3b89338731a6feb97c038d293
-        x-checker-data:
-          type: anitya
-          project-id: 12083
-          url-template: https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz
-
-      - type: patch
-        path: 2548.patch
 
   - name: bcg729
     buildsystem: cmake-ninja
@@ -205,13 +179,10 @@ modules:
     sources:
       - type: git
         url: https://git.kernel.org/pub/scm/bluetooth/sbc.git
-        tag: '1.5'
-        commit: b2c20a3ecf5ed00f63c94077a9762b505935ede9
+        tag: '2.1'
+        commit: 9b6c775f02b1ea944c8a203452ce23d7854e9187
         x-checker-data:
           type: git
-
-      - type: patch
-        path: b2c20a3ecf5ed00f63c94077a9762b505935ede9..909a9bdf7ab143e1f0baaf9736baebd3cd79aacf.patch
 
   - name: krb5
     subdir: src
@@ -220,12 +191,48 @@ modules:
       - --disable-rpath
     sources:
       - type: archive
-        url: https://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.19.1.tar.gz
-        sha256: fa16f87eb7e3ec3586143c800d7eaff98b5e0dcdf0772af7d98612e49dbeb20b
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.22.2-final.tar.gz
+        sha256: 289f5bb81d1f2f8d5eecebe56a056aeed95d35fd9bb4a7071c5dd7ad4b3fe888
         x-checker-data:
           type: anitya
           project-id: 13287
-          url-template: https://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-$version.tar.gz
+          stable-only: true
+          url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
+
+      - type: shell
+        dest: src
+        commands:
+          - autoreconf -si
+
+  - name: libsmi
+    sources:
+        # original libsmi sources, download from Debian repo because upstream download is dead
+      - type: archive
+        url: https://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2.orig.tar.gz
+        sha256: 1d6894aa4aa73f8949ccb420a57e4e1275f8099c187771a41838e30a703269e8
+        x-checker-data:
+          type: debian-repo
+          root: https://deb.debian.org/debian/
+          dist: unstable
+          component: main
+          package-name: libsmi2-dev
+          source: true
+        # Debian packaging sources, download to get patches. x-checker-data to get notifications for new releases of the Debian package
+        # When package gets an update: read Changelog to check for new patches or other relevant changes
+      - type: archive
+        url: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_0.4.8+dfsg2-18.debian.tar.xz
+        sha256: f0eb0afc4d2bd18930d75fef9422f7369fbf1b34ce6b1be82a8d493e3ea6ab0e
+        strip-components: 0
+        x-checker-data:
+          type: html
+          url: https://packages.debian.org/en/sid/libsmi2-dev
+          version-pattern: libsmi2-dev \((0.4.8\+dfsg\d+-[\d.]+) and others\)
+          url-template: http://deb.debian.org/debian/pool/main/libs/libsmi/libsmi_$version.debian.tar.xz
+      - type: shell
+        commands:
+          - cp -p /usr/share/automake-*/config.{sub,guess} . # fix outdated config files
+          - for patchfile in debian/patches/*.patch; do patch -p1 < "$patchfile";
+            done                                                                       # apply all patches from Debian package
 
   - name: libilbc
     buildsystem: cmake-ninja
@@ -257,8 +264,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
-        sha256: 8d12b42623eeefee872f123bd0dc85d535b00df4d42e865f993c40f7bfc92b1e
+        url: http://www.tcpdump.org/release/libpcap-1.10.6.tar.gz
+        sha256: 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9
         x-checker-data:
           type: anitya
           project-id: 1702
@@ -268,6 +275,9 @@ modules:
   - name: wireshark
     buildsystem: cmake-ninja
 
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+
     cleanup:
       - /include
       - /share/man
@@ -275,9 +285,24 @@ modules:
 
     sources:
       - type: archive
-        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.4.tar.xz
-        sha256: 729cd11e9715c600e5ad74ca472bacf8af32c20902192d5f2b271268511d4d29
+        url: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.3.tar.xz
+        sha256: 9fa6a745df8540899dc9d433e4634d6755371ff87bd722ce04c7d7b0132d9af3
         x-checker-data:
           type: anitya
           project-id: 5137
           url-template: https://1.eu.dl.wireshark.org/src/all-versions/wireshark-$version.tar.xz
+      - type: patch
+        path: 0001-Mention-that-data-capture-isn-t-possible.patch
+
+
+  - name: wireshark-wrapper
+    buildsystem: simple
+    build-commands:
+      - install -Dm0755 wireshark-wrapper.sh ${FLATPAK_DEST}/bin/wireshark-wrapper
+      - |
+        desktop-file-edit --set-key="Exec" --set-value="wireshark-wrapper %f" \
+          --set-key="TryExec" --set-value="wireshark-wrapper" \
+          ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+    sources:
+      - type: file
+        path: wireshark-wrapper.sh
