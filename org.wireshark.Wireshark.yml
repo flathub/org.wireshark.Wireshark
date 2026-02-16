@@ -64,6 +64,8 @@ modules:
 
 
   - name: nghttp2
+    # nghttp2 is in the runtime
+    disabled: true
     cleanup:
       - /include
       - /share
