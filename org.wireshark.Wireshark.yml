@@ -279,6 +279,7 @@ modules:
 
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DBUILD_stratoshark=ON
 
     cleanup:
       - /include
