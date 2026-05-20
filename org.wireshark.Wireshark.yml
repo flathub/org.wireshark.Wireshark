@@ -26,6 +26,8 @@ modules:
           type: anitya
           project-id: 5303
           url-template: https://zlib.net/zlib-$version.tar.gz
+          versions:
+            ">": 1.3.2
 
       - type: script
         dest: contrib/minizip/
