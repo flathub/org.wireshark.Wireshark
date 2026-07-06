@@ -1,0 +1,40 @@
+diff --git a/epan/addr_resolv.c b/epan/addr_resolv.c
+index 985fca5..79d55d3 100644
+--- a/epan/addr_resolv.c
++++ b/epan/addr_resolv.c
+@@ -394,7 +394,7 @@ typedef struct _async_hostent {
+ } async_hostent_t;
+ 
+ static void
+-c_ares_ghba_cb(void *arg, int status, int timeouts _U_, struct hostent *he);
++c_ares_ghba_cb(void *arg, int status, int timeouts _U_, const struct hostent *he);
+ 
+ /*
+  * Submitted synchronous queries trigger a callback (c_ares_ghba_sync_cb()).
+@@ -491,7 +491,7 @@ dnsserver_uat_fld_port_chk_cb(void* r _U_, const char* p, unsigned len _U_, cons
+ }
+ 
+ static void
+-c_ares_ghba_sync_cb(void *arg, int status, int timeouts _U_, struct hostent *he) {
++c_ares_ghba_sync_cb(void *arg, int status, int timeouts _U_, const struct hostent *he) {
+     sync_dns_data_t *sdd = (sync_dns_data_t *)arg;
+     char **p;
+ 
+@@ -1326,7 +1326,7 @@ fill_dummy_ip6(hashipv6_t* volatile tp)
+ }
+ 
+ static void
+-c_ares_ghba_cb(void *arg, int status, int timeouts _U_, struct hostent *he) {
++c_ares_ghba_cb(void *arg, int status, int timeouts _U_, const struct hostent *he) {
+     async_dns_queue_msg_t *caqm = (async_dns_queue_msg_t *)arg;
+     char **p;
+ 
+@@ -4404,7 +4404,7 @@ eui64_to_display(wmem_allocator_t *allocator, const uint64_t addr_eui64)
+ 
+ #define GHI_TIMEOUT (250 * 1000)
+ static void
+-c_ares_ghi_cb(void *arg, int status, int timeouts _U_, struct hostent *hp) {
++c_ares_ghi_cb(void *arg, int status, int timeouts _U_, const struct hostent *hp) {
+     /*
+      * XXX - If we wanted to be really fancy we could cache results here and
+      * look them up in get_host_ipaddr* below.
