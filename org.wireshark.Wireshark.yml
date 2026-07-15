@@ -156,8 +156,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/BelledonneCommunications/bcg729.git
-        tag: 1.1.1
-        commit: faaa895862165acde6df8add722ba4f85a25007d
+        tag: 1.1.2
+        commit: fb195811fe630415c9bf433c0c0bebde14314ff2
         x-checker-data:
           type: git
 
