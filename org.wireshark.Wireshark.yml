@@ -94,8 +94,8 @@ modules:
       - INSTALL_TOP=/app
     sources:
       - type: archive
-        url: https://www.lua.org/ftp/lua-5.4.8.tar.gz
-        sha256: 4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
+        url: https://www.lua.org/ftp/lua-5.4.9.tar.gz
+        sha256: 2335b6c582a52654f94612bf10d2f4672805d05329aa6568b1d8cd9e5c6fb8e6
         x-checker-data:
           type: anitya
           project-id: 1847
@@ -271,8 +271,8 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.6.tar.gz
-        sha256: 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9
+        url: http://www.tcpdump.org/release/libpcap-1.10.7.tar.gz
+        sha256: 0b394ac90dbc0a9838ff97468e05c9c9a3e873dec2514cd58db65d859d296e31
         x-checker-data:
           type: anitya
           project-id: 1702
